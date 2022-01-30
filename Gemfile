@@ -14,7 +14,7 @@ gem "devise_token_auth", "~> 1.1.4"
 # CORS
 gem "rack-cors", "~> 1.1.1"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
+gem "jbuilder", "~> 2.10.1"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
