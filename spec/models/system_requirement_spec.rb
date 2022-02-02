@@ -10,4 +10,7 @@ RSpec.describe SystemRequirement, type: :model do
   it { is_expected.to validate_presence_of(:processor) }
   it { is_expected.to validate_presence_of(:memory) }
   it { is_expected.to validate_presence_of(:video_board) }
+
+  it_behaves_like "name searchable concern", :system_requirement
+  it_behaves_like "paginatable concern", :system_requirement
 end
