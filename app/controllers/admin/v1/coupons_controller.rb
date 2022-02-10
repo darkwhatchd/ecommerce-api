@@ -34,6 +34,7 @@ module Admin::V1
     end
 
     def coupon_params
+      return {} unless params.has_key?(:coupon)
       params.require(:coupon).permit(:id, :name, :code, :status, :discount_value, :max_use, :due_date)
     end
 
