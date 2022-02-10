@@ -47,7 +47,7 @@ RSpec.describe "Admin::V1::SystemRequirements as :admin", type: :request do
         { system_requirement: attributes_for(:system_requirement, name: nil) }.to_json
       end
 
-      it "does not add a new Category" do
+      it "does not add a new System Requirement" do
         expect do
           post url, headers: auth_header(user), params: system_requirement_invalid_params
         end.to_not change(SystemRequirement, :count)
@@ -147,14 +147,6 @@ RSpec.describe "Admin::V1::SystemRequirements as :admin", type: :request do
       game = create(:game, system_requirement: system_requirement)
       delete url, headers: auth_header(user)
       expect(body_json["errors"]["fields"]).to have_key("base")
-    end
-
-    it "does not remove unassociated product categories" do
-      product_categories = create_list(:product_category, 3)
-      delete url, headers: auth_header(user)
-      present_product_categories_ids = product_categories.map(&:id)
-      expected_product_categories = ProductCategory.where(id: present_product_categories_ids)
-      expect(expected_product_categories.ids).to contain_exactly(*present_product_categories_ids)
     end
   end
 end
