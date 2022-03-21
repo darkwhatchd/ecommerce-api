@@ -99,8 +99,6 @@ RSpec.describe "Admin::V1::Users as :admin", type: :request do
       end
 
       it "does not update User" do
-        print "#{user.name} ###########################################################333"
-        puts user_invalid_params
         old_name = user.name
         patch url, headers: auth_header(admin_user), params: user_invalid_params
         user.reload
