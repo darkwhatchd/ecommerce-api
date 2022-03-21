@@ -13,6 +13,9 @@ module Admin::V1
       save_category!
     end
 
+    def show
+    end
+
     def update
       @category.attributes = category_params
       save_category!
